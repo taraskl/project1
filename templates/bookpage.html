@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Book Details</h1>
+
+    <ul>
+        <li>Isbn: {{ book.isbn }}</li>
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author}}</li>
+        <li>Year: {{ book.year}}</li>
+        <li>Average rating: {{ data.average_rating }}</li>
+        <li>Ratings: {{ data.work_ratings_count }}</li>
+    </ul>
+    {{ isbn }}
+    <h3>Reviews</h1>
+
+    	{% if reviews %}
+			    <ul>
+			    	{% for review in reviews %}
+			        <li>Rating (from 1 to 5): {{ review.rating }}</li>
+			        <li>Review: {{ review.review }}</li>
+			        </br>
+			        {% endfor %}
+			    </ul>
+        {% endif %}
+    <h3>Left Review</h1>
+        <form action="{{ url_for('bookpage', book_id=book.id) }}" method="post">
+        <input type="text" name="rating" placeholder="Left Rating"></br>
+        <input type="text" name="review" placeholder="Left Your Review"></br>
+        <button>Submit</button>
+    </form>
+	</br>    
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Registration
+{% endblock %}
+
+{% block body %}
+
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+
+    </ul>
+
+    <form action="{{ url_for('registration') }}" method="post">
+        <input type="text" name="username" placeholder="Enter Username"></br>
+        <input type="text" name="password" placeholder="Enter Password"></br>	
+        <button>Registration</button>
+    </form>
+{% endblock %}
