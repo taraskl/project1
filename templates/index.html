@@ -5,23 +5,25 @@
 {% endblock %}
 
 {% block body %}
-    <ul>
+    <div>
         {% if user_id %}
-        Hello! {{ username }} {{ user_id}}
+        Hello {{ username }} !  
             <form method="get" action="{{ url_for('logout') }}">
                 <button type="submit">Logout</button>
             </form>
         {% endif %}
-    </ul>
-
-    </br>
-    <form method="get" action="/registration">
-        <button type="submit">Registration</button>
-    </form>
-
+    </div>
+    <div>
+        {% if not user_id %}
+        <form method="get" action="/registration">
+            <button type="submit">Registration</button>
+        </form>
+        {% endif %}
+    </div>
+    <br/>
     <form action="{{ url_for('index') }}" method="post">
         <input type="text" name="username" placeholder="Enter Username"></br>
-        <input type="text" name="password" placeholder="Enter Password"></br>   
+        <input type="password" name="password" placeholder="Enter Password"></br>   
         <button>Login</button>
     </form>
 

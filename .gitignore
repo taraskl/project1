@@ -1,0 +1,6 @@
+__pycache__/
+flask_session/
+list.py
+tables.sql
+sqlalchemy.dialects.sqlite
+note.md

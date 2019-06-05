@@ -4,7 +4,11 @@ Education project from edX HarvardX course: CS50's Web Programming with Python a
 
 Book review website
 
-Requirements:
+
+Application.py - main file what run app.
+Import.py - script what imports data from books.csv to database which is located on Herok.
+
+Functionality:
 
 Registration: Users should be able to register for your website, providing (at minimum) a username and password.
 
@@ -23,3 +27,5 @@ Review Submission: On the book page, users should be able to submit a review: co
 Goodreads Review Data: On your book page, you should also display (if available) the average rating and number of ratings the work has received from Goodreads.
 
 API Access: If users make a GET request to your website’s /api/<isbn> route, where <isbn> is an ISBN number, your website should return a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. The resulting JSON should follow the format:
+
+

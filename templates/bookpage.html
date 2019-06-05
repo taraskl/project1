@@ -13,12 +13,11 @@
         <li>Title: {{ book.title }}</li>
         <li>Author: {{ book.author}}</li>
         <li>Year: {{ book.year}}</li>
-        <li>Average rating: {{ data.average_rating }}</li>
-        <li>Ratings: {{ data.work_ratings_count }}</li>
+        <li>Average rating from Goodreads: {{ data.average_rating }}</li>
+        <li>Ratings from Goodreads: {{ data.work_ratings_count }}</li>
     </ul>
-    {{ isbn }}
-    <h3>Reviews</h1>
 
+    <h3>Reviews:</h3>
     	{% if reviews %}
 			    <ul>
 			    	{% for review in reviews %}
@@ -28,12 +27,19 @@
 			        {% endfor %}
 			    </ul>
         {% endif %}
-    <h3>Left Review</h1>
+    <div>
+        {% if message %}
+        {{ message }}
+        {% endif %}    
         <form action="{{ url_for('bookpage', book_id=book.id) }}" method="post">
-        <input type="text" name="rating" placeholder="Left Rating"></br>
-        <input type="text" name="review" placeholder="Left Your Review"></br>
+          <input type="radio" name="rating" value="1"> 1
+          <input type="radio" name="rating" value="2"> 2
+          <input type="radio" name="rating" value="3"> 3 
+          <input type="radio" name="rating" value="4"> 4
+          <input type="radio" name="rating" value="5"> 5</br>
+        <textarea rows="10" cols="45" name="review" placeholder="Left Your Review"></textarea></br>
         <button>Submit</button>
-    </form>
-	</br>    
+        </form>
+	</div>    
 
 {% endblock %}
